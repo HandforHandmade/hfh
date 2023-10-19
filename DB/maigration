@@ -1,0 +1,85 @@
+===========================================================================
+===========================================================================
+********************** Migration Format ********************************
+
+Example :
+***********query 01-October-2021**********************
+Alter table
+*********** End query 01-October-2021 *************
+
+Notes: Latest Query always Add Last
+===========================================================================
+
+***********query 03-March-2023*********************
+
+ALTER TABLE
+    `event` ADD `event_city` VARCHAR(500) NULL DEFAULT NULL AFTER `status`,
+    ADD `event_state` VARCHAR(500) NULL DEFAULT NULL AFTER `event_city`;
+
+ALTER TABLE
+    `category_master` ADD `parent_id` INT(11) NULL DEFAULT '0' AFTER `description`;
+
+ALTER TABLE
+    `category_master` ADD `img_path` VARCHAR(500) NULL DEFAULT NULL AFTER `parent_id`;
+
+***********End query 03-March-2023**********************
+
+***********query 25-March-2023*********************
+
+CREATE TABLE `user_portfolio`(
+    `id` INT(11) NOT NULL,
+    `image` TEXT DEFAULT NULL,
+    `title` VARCHAR(255) DEFAULT NULL,
+    `user_id` INT(11) NOT NULL DEFAULT 0
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+CREATE TABLE `user_tags` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `user_id` int(11) DEFAULT NULL,
+ `tag_id` int(11) DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4
+
+
+CREATE TABLE `master_tag` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` text DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4
+
+
+CREATE TABLE `user_catalogue`(
+    `id` INT(11) NOT NULL,
+    `image` TEXT DEFAULT NULL,
+    `title` VARCHAR(255) DEFAULT NULL,
+    `user_id` INT(11) NOT NULL DEFAULT 0
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+
+
+***********END query 25-March-2023*********************
+
+
+***********query 28-March-2023*********************
+
+ALTER TABLE `user_portfolio` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+ALTER TABLE `user_catalogue` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+
+CREATE TABLE `contact_inquiry` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(255) DEFAULT NULL,
+ `email` varchar(255) DEFAULT NULL,
+ `mobile` varchar(50) DEFAULT NULL,
+ `subject` varchar(255) DEFAULT NULL,
+ `remark` text DEFAULT NULL,
+ `status` tinyint(1) NOT NULL DEFAULT 0,
+ `created_datetime` timestamp NOT NULL DEFAULT current_timestamp(),
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+***********END query 28-March-2023********************
+
+
+ALTER TABLE `event` ADD `video_link` TEXT NULL DEFAULT NULL AFTER `img_path`;
