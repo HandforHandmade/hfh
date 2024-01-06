@@ -17,17 +17,17 @@ class Config
      * 3) TestServer = Test Server Config set
      */
 
-    const currentModeServer = 'Local'; /* Set User Connection*/
+    const currentModeServer = 'Server'; /* Set User Connection*/
     const currentModeServerConfig = array(
         'Local' => array(
             'baseUrl' => 'http://localhost/hfh/',
-            'masterConnServer' => 'database-1.chnpkhgsoz96.ap-south-1.rds.amazonaws.com',
-            'masterConnUsername' => 'admin',
-            'masterConnPassword' => 'Admin123*++',
+            'masterConnServer' => 'localhost',
+            'masterConnUsername' => 'root',
+            'masterConnPassword' => 'Password123*',
             'masterConnDBName' => 'hfh_final'
         ),
         'Server' => array(
-            'baseUrl' => 'http://68.178.170.217/',
+            'baseUrl' => 'https://www.handforhandmade.org/',
             'masterConnServer' => 'database-1.chnpkhgsoz96.ap-south-1.rds.amazonaws.com',
             'masterConnUsername' => 'admin',
             'masterConnPassword' => 'Admin123*++',

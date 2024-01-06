@@ -140,7 +140,7 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                     html += '<div class="l_news_item">';
                     html += '<div class="l_news_img">';
                     html += '<a href="event-details.php?id=' + event.id + '&categoryId=' + event.categoryId + '">';
-                    html += '<img class="img-fluid" style="height: 250px;width: 350px;"  src="'+ADMIN_BASE_URL + event.image + '" alt="">';
+                    html += '<img class="img-fluid" style="height: 250px;width: 350px;"  src="http://68.178.170.217:8080/' + event.image + '" alt="">';
                     html += '</a>';
                     html += '</div>';
                     html += '<div class="l_news_text">';

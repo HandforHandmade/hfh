@@ -2,13 +2,43 @@
 session_start();
 
 $name = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-define('API_BASE_URL', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/hfh/api/');
+define('API_BASE_URL', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/api/');
 
 define('AssetPath', '../assets/');
 error_reporting(1);
+if (isset($_GET['error'])) {
+    $errormsg = '<label class="btn btn-danger cls-danger kt-btn col-sm-12">
+<i class="flaticon2-attention"></i>
+Invalid credentials
+</label>';
+}
+
+if (isset($_GET['error_msg'])) {
+    $errormsg = '<label class="btn cls-danger cls-danger kt-btn col-sm-12">
+<i class="flaticon2-attention"></i>
+Invalid Username or Password
+</label>';
+}
+
+if (isset($_GET['error_msgstatus'])) {
+    $errormsg = '<label class="btn cls-danger cls-danger kt-btn col-sm-12">
+<i class="flaticon2-attention"></i>
+This User is Deactive
+</label>';
+}
+
+if (isset($_GET['error_client'])) {
+    $errormsg = '<label class="btn cls-danger cls-danger kt-btn col-sm-12 client_msg">
+<i class="flaticon2-attention"></i>
+Enter Client Name
+</label>';
+}
 
 if (isset($_GET['status_error'])) {
-    $errormsg = '<error><div class="alert alert-danger" role="alert">Something wrong Please login again</div></error>';
+    $errormsg = '<label class="btn btn-danger cls-danger kt-btn col-sm-12">
+<i class="flaticon2-attention"></i>
+Your Web Account Is Disabled Please Contact To Admin
+</label>';
 }
 
 /*$sql="select * from client where foldername='".$_SESSION['CLINETFOLDERNAME']."'";
@@ -59,167 +89,170 @@ while($row=mysqli_fetch_assoc($res))
 <body>
 
 
-    <!-- Main Header-->
-    <?php include 'include/header.php'; ?>
-    <!-- End Main Header -->
+<!-- Main Header-->
+<?php include 'include/header.php'; ?>
+<!-- End Main Header -->
 
 
-    <!--================End Main Header Area =================-->
-    <section class="banner_area">
-        <div class="tear top"></div>
-        <div class="container">
-            <div class="banner_text">
-                <h3> Sign in </h3>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li> Sign in</li>
-                </ul>
-            </div>
+<!--================End Main Header Area =================-->
+<section class="banner_area">
+    <div class="tear top"></div>
+    <div class="container">
+        <div class="banner_text">
+            <h3> Sign in </h3>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li> Sign in</li>
+            </ul>
         </div>
-    </section>
-    <!--================End Main Header Area =================-->
+    </div>
+</section>
+<!--================End Main Header Area =================-->
 
 
-    <section class="osahan-main-body">
-        <div class="container">
-            <div class="row d-flex align-items-center justify-content-center vh-100">
+<section class="osahan-main-body">
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center vh-100">
 
-                <div class="col-lg-3"></div>
+            <div class="col-lg-3"></div>
 
-                <div class="col-lg-6 pl-lg-5">
-                    <div class="osahan-signup shadow bg-white p-4 border rounded">
-                        <div class="p-3">
-                            <h2 class=""> Sign In </h2>
-                            <p class="small mb-4"> Sign in to Continue. </p>
-                            <label style="display:none" class="btn btn-danger cls-danger kt-btn col-sm-12 msg">
+            <div class="col-lg-6 pl-lg-5">
+                <div class="osahan-signup shadow bg-white p-4 border rounded">
+                    <div class="p-3">
+                        <h2 class=""> Sign In </h2>
+                        <p class="small mb-4"> Sign in to Continue. </p>
+                        <label style="display:none" class="btn btn-danger cls-danger kt-btn col-sm-12 msg">
 
-                            </label>
-                            <?php if ($errormsg != "") {
-                                echo $errormsg;
-                            } ?>
-                            <error id="errorMsgDiv">
-                            </error>
-                            <hr>
-                            <form action="#" method='POST' id="loingform" onsubmit="return userLogin()">
-                                <input type="hidden" name="webAT" id="webAT" value="" />
-                                <input type="hidden" name="webRT" id="webRT" value="" />
-                                <input type="hidden" name="signin" id="signin" value="" />
+                        </label>
+                        <?php if ($errormsg != "") {
+                            echo $errormsg;
+                        } ?>
+                        <error id="errorMsgDiv">
+                        </error>
+                        <hr>
+                        <form action="#" method='POST' id="loingform" onsubmit="return userLogin()">
+                            <input type="hidden" name="webAT" id="webAT" value=""/>
+                            <input type="hidden" name="webRT" id="webRT" value=""/>
+                            <input type="hidden" name="signin" id="signin" value=""/>
 
-                                <div class="form-group">
-                                    <label for="">User Name</label>
-                                    <input placeholder="Enter User Name" type="text" class="form-control input-lg" id="userName" aria-describedby="emailHelp" name="userName">
-                                </div>
+                            <div class="form-group">
+                                <label for="">User Name</label>
+                                <input placeholder="Enter User Name" type="text" class="form-control input-lg"
+                                       id="userName" aria-describedby="emailHelp" name="userName">
+                            </div>
 
 
-                                <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input placeholder="Enter Password" type="password" class="form-control input-lg" id="userPassword" name="userPassword">
-                                </div>
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input placeholder="Enter Password" type="password" class="form-control input-lg"
+                                       id="userPassword" name="userPassword">
+                            </div>
 
-                                <button type="submit" class="btn btn-danger rounded btn-lg btn-block" id="login">
-                                    Sign in
-                                </button>
-                            </form>
-                            <p class="text-muted text-center small py-2 m-0">or</p>
+                            <button type="submit" class="btn btn-danger rounded btn-lg btn-block" id="login">
+                                Sign in
+                            </button>
+                        </form>
+                        <p class="text-muted text-center small py-2 m-0">or</p>
 
-                            <a href="signin-phone.php" class="btn btn-light border btn-block rounded btn-lg btn-google">
-                                <i class="icofont-google-plus text-danger mr-2"></i>
-                                Sign In with Phone No.
-                            </a>
-                            <p class="text-center mt-3 mb-0"><a href="signup.php" class="text-dark">
-                                    Don't have an account? Sign up </a></p>
+                        <a href="signin-phone.php"
+                           class="btn btn-light border btn-block rounded btn-lg btn-google">
+                            <i class="icofont-google-plus text-danger mr-2"></i>
+                            Sign In with Phone No.
+                        </a>
+                        <p class="text-center mt-3 mb-0"><a href="signup.php" class="text-dark">
+                                Don't have an account? Sign up </a></p>
 
-                        </div>
                     </div>
                 </div>
-
-                <div class="col-lg-3"></div>
-
             </div>
+
+            <div class="col-lg-3"></div>
+
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <div class="tear-footer bot"></div>
+<div class="tear-footer bot"></div>
 
-    <!-- Main Footer -->
-    <?php include 'include/footer.php'; ?>
-    <!-- End Main Footer -->
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Extra plugin js -->
-    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="vendors/magnifc-popup/jquery.magnific-popup.min.js"></script>
-    <script src="vendors/datetime-picker/js/moment.min.js"></script>
-    <script src="vendors/datetime-picker/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-    <script src="vendors/jquery-ui/jquery-ui.min.js"></script>
-    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-
-    <script src="js/theme.js"></script>
+<!-- Main Footer -->
+<?php include 'include/footer.php'; ?>
+<!-- End Main Footer -->
 
 
-    <script>
-        function userLogin() {
-            ApiAuthencationForLogin(function(data) {
-                console.log(data);
-                if (data.responseCode == 1) {
-                    $('#loingform').removeAttr('onsubmit');
-                    $('#loingform').attr('action', 'authentication.php');
-                    $('#webAT').val(data.result.AT);
-                    localStorage.setItem("AT", data.result.AT);
-                    $('#webRT').val(data.result.RT);
-                    localStorage.setItem("RT", data.result.RT);
-                    $('#signin').val('Submit');
-                    $("#loingform").submit();
-                    return true;
-                } else {
-                    $('#errorMsgDiv').html('<div class="alert alert-danger" role="alert">' + data.message +
-                        '</div>');
-                }
-                return false;
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
-            });
+<!-- Extra plugin js -->
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="vendors/magnifc-popup/jquery.magnific-popup.min.js"></script>
+<script src="vendors/datetime-picker/js/moment.min.js"></script>
+<script src="vendors/datetime-picker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="vendors/jquery-ui/jquery-ui.min.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+
+<script src="js/theme.js"></script>
+
+
+<script>
+
+    function userLogin() {
+        ApiAuthencationForLogin(function (data) {
+            console.log(data);
+            if (data.responseCode == 1) {
+                $('#loingform').removeAttr('onsubmit');
+                $('#loingform').attr('action', 'authentication.php');
+                $('#webAT').val(data.result.AT);
+                localStorage.setItem("AT", data.result.AT);
+                $('#webRT').val(data.result.RT);
+                localStorage.setItem("RT", data.result.RT);
+                $('#signin').val('Submit');
+                $("#loingform").submit();
+                return true;
+            } else {
+                $('#errorMsgDiv').html('<div class="alert alert-danger" role="alert">' + data.message + '</div>');
+            }
             return false;
 
-        }
+        });
+        return false;
 
-        async function ApiAuthencationForLogin(callback) {
-            let sendApiDataObj = {
-                'systemProject': 'Sessions',
-                'systemModuleFunction': 'login',
-                'userMasterUsername': btoa($('#userName').val()),
-                'userMasterPassword': btoa($('#userPassword').val()),
-                'userMasterDeviceType': 'web',
-                'userMasterDeviceId': '',
-                'userMasterDeviceToken': '',
-                'tokenValidityValue': '10',
-                'tokenValidityType': 'days'
-            };
+    }
 
-            $.ajax({
-                type: "POST",
-                url: "<?php echo API_BASE_URL; ?>",
-                async: false,
-                data: sendApiDataObj,
-                success: function(response) {
+    async function ApiAuthencationForLogin(callback) {
+        let sendApiDataObj = {
+            'systemProject': 'Sessions',
+            'systemModuleFunction': 'login',
+            'userMasterUsername': btoa($('#userName').val()),
+            'userMasterPassword': btoa($('#userPassword').val()),
+            'userMasterDeviceType': 'web',
+            'userMasterDeviceId': '',
+            'userMasterDeviceToken': '',
+            'tokenValidityValue': '10',
+            'tokenValidityType': 'days'
+        };
 
-                    callback(response);
-                },
-                error: function(jqXHR, status, err) {
-                    callback(err);
-                }
-            });
+        $.ajax({
+            type: "POST",
+            url: "<?php echo API_BASE_URL; ?>",
+            async: false,
+            data: sendApiDataObj,
+            success: function (response) {
+
+                callback(response);
+            },
+            error: function (jqXHR, status, err) {
+                callback(err);
+            }
+        });
 
 
-        }
-    </script>
+    }
+</script>
 </body>
 
 </html>

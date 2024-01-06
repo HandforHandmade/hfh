@@ -74,7 +74,11 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
          class="latest_news_area">
     <div class="container">
         <input id="categoryId" type="hidden" value="<?php echo $_GET['id']; ?>">
-        <h5 style="text-align: left" id="categoryDesc"></h5>
+        <h5 style="text-align: left" >
+<div class="blog_text">
+<p class="" id="categoryDesc"></p>
+</div>
+</h5>
         <div class="row latest_news_inner mt-5" id="eventList"></div>
     </div>
 </section>
@@ -132,9 +136,11 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
             let html = '';
             if (response.responseCode == resultOk) {
 
+let categoryDesc = '';
                 for (let i = 0; i < response.result.event.length; i++) {
 
                     let event = response.result.event[i];
+		    categoryDesc = event.categoryDesc;    	 
 
                     html += '<div class="col-lg-4 col-md-6">';
                     html += '<div class="l_news_item">';
@@ -144,10 +150,11 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                     html += '</a>';
                     html += '</div>';
                     html += '<div class="l_news_text">';
+                    
+
                     if(event.eventCity!='' && event.eventState!=''){
                         html += '<h5> ' + event.eventCity + ' | ' + event.eventState + ' </h5>';
                     }
-                    
                     html += '<a href="event-details.php?id=' + event.id + '&categoryId=' + event.categoryId + '">';
                     html += '<h4> ' + event.name + '</h4>';
                     html += '</a>';
@@ -160,9 +167,10 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                     $('.eventCategoryName').text(event.categoryName);
                     $('.eventListText').text(event.categoryName);
                     //$('#categoryName').text(event.categoryName);
-                    $('#categoryDesc').html(event.categoryDesc);
+                   
 
                 }
+ $('#categoryDesc').html(categoryDesc);
                 $('#eventList').html(html);
             }
 

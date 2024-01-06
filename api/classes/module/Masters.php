@@ -21,12 +21,12 @@ class Masters extends Config
 
             $appendQuery = '';
             if ($this->isNotNullOrEmptyOrZero($parentId)) {
-                $appendQuery = " WHERE parent_id = '$parentId' ";
+                $appendQuery = " AND parent_id = '$parentId' ";
             }
             if ($this->isNotNullOrEmptyOrZero($categoryId)) {
-                $appendQuery = " WHERE id = '$categoryId' ";
+                $appendQuery = " AND id = '$categoryId' ";
             }
-            $query = $this::$masterConn->prepare("SELECT * FROM category $appendQuery ORDER BY category_name ASC ");
+            $query = $this::$masterConn->prepare("SELECT * FROM category $appendQuery WHERE  status='Active' ORDER BY event_display_order ASC ");
             if ($query->execute()) {
                 if ($query->rowCount() > 0) {
                     $this->successData();
@@ -155,7 +155,7 @@ class Masters extends Config
     users.*,user_type.type_name AS userType
 FROM users 
  LEFT JOIN user_type ON user_type.id=users.user_type 
- $appendQuery");
+ $appendQuery ORDER BY display_order ASC");
 
             if ($query->execute()) {
                 if ($query->rowCount() > 0) {
@@ -168,15 +168,18 @@ FROM users
                             'userDesc' => $this->convertNullToEmptyString($row['user_desc']),
                             'designation' => $this->convertNullToEmptyString($row['designation']),
                             'imagePath' => $this->generateUserProfileAttachmentUrl($row['img_path']),
-			                'imagePath1' => $this->convertNullToEmptyString($row['img_path']),
+			    'imagePath1' => $this->convertNullToEmptyString($row['img_path']),
                             'userType' => $this->convertNullToEmptyString($row['userType']),
                             'userTypeId' => $this->convertNullToEmptyString($row['user_type']),
+                            'facebookLink' =>  $this->convertNullToEmptyString($row['facebook_link']),
                             'twitterLink' =>  $this->convertNullToEmptyString($row['twitter_link']),
                             'linkdInLink' =>  $this->convertNullToEmptyString($row['linkedin_link']),
                             'webLink' =>  $this->convertNullToEmptyString($row['website']),
                             'facebookLink' =>  $this->convertNullToEmptyString($row['facebook_link']),
-                            'instaggramLink' =>  $this->convertNullToEmptyString($row['instagram_link']),
-                            
+                            'twitterLink' =>  $this->convertNullToEmptyString($row['twitter_link']),
+                            'linkdInLink' =>  $this->convertNullToEmptyString($row['linkedin_link']),
+                            'webLink' =>  $this->convertNullToEmptyString($row['website']),
+'instagramLink' =>  $this->convertNullToEmptyString($row['instagram_link']),
                         );
                     }
                     $this::$result = array('users' => $this->data);
@@ -212,7 +215,7 @@ FROM users
 FROM event
 LEFT JOIN category ON category.id = event.category_id 
 $appendQuery  AND event.status ='Active'
-ORDER BY event.event_ ASC;");
+ORDER BY event.event_order ASC, event.event_name ASC;");
 
 
             if ($query->execute()) {
@@ -593,9 +596,11 @@ ORDER BY event.event_ ASC;");
 
 
             $queryUpdate = $this::$masterConn->prepare("INSERT INTO `contact_inquiry`(`name`, `email`, `mobile`, `subject`, `remark`) VALUES ('$name','$email','$mobile','$subject','$remark')");
-            if ($queryUpdate->execute()) {
+           
+    if ($queryUpdate->execute()) {
                 if ($queryUpdate->rowCount() > 0) {
-                    $this->successData();
+        
+                   
                     $body = "Name:" . $name . "<br>";
                     $body .= "Email Id:" . $email . "<br>";
                     $body .= "Phone:" . $mobile . "<br>";
@@ -607,15 +612,15 @@ ORDER BY event.event_ ASC;");
                         'Host' => $this->emailHost,
                         'SSL' => 1,
                         'Port' => $this->emailPort,
-                        'Userid' => $this->emailUsername,
-                        'Password' => $this->emailPassword,
+                        'Userid' => "mi.pinanksoni@gmail.com",
+                        'Password' => "whlcgfedtmeipdkj",
                         'Subject' => "New Inquiry Received",
                         'Body' => $body,
-                        'FromEmailId' => $this->emailFrom,
-                        'FromEmailName' => $this->emailFromName,
+                        'FromEmailId' => "mi.pinanksoni@gmail.com",
+                        'FromEmailName' => "Pinank Soni",
                         'ReplayEmailId' => '',
                         'ReplayEmailName' => '',
-                        'ToEmailId' => [['Name' => 'Pinank', 'Id' => 'rs.pinanksoni@gmal.com'], ['Name' => 'h', 'Id' => 'info@handforhandmade.com']],
+                        'ToEmailId' => [['Name' => 'Pinank', 'Id' => 'mi.pinanksoni@gmail.com'], ['Name' => 'h', 'Id' => 'info@handforhandmade.com']],
                         'CCEmailId' => [],
                         'BCCEmailId' => [],
                         'Attachment' => '',
@@ -624,6 +629,7 @@ ORDER BY event.event_ ASC;");
 
                     $emailInstance = new Email($emailArray);
                     if ($emailInstance->SendEmail($emailArray)) {
+ $this->successData();
                     } else {
                         $this->noData(Email::$emailErrorMsg);
                     }

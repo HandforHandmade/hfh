@@ -197,7 +197,7 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                                     aria-labelledby="home-tab">
                                     <div class="udb-sec udb-prof">
                                         <p id="userAbout"></p>
-
+                                        <p id="userAbout"></p>
                                     </div>
                                 </div>
 
@@ -319,26 +319,27 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
 
     function saveInquiry() {
         let resultOk = '<?php echo resultOk;?>';
-        if ($('#name').val() === '') {
-            alert("Enter Name");
-            return false;
-        }
-        if ($('#mobile').val() === '') {
-            alert("Enter Mobile");
-            return false;
-        }
-        if ($('#email').val() === '') {
-            alert("Enter Email");
-            return false;
-        }
-        if ($('#subject').val() === '') {
-            alert("Enter Subject");
-            return false;
-        }
-        if ($('#remark').val() === '') {
-            alert("Enter Remark");
-            return false;
-        }
+
+     if ($('#name').val() === '') {
+                alert("Enter Name");
+                return false;
+            }
+            if ($('#mobile').val() === '') {
+                alert("Enter Mobile");
+                return false;
+            }
+            if ($('#email').val() === '') {
+                alert("Enter Email");
+                return false;
+            }
+            if ($('#subject').val() === '') {
+                alert("Enter Subject");
+                return false;
+            }
+            if ($('#remark').val() === '') {
+                alert("Enter Remark");
+                return false;
+            }
         let sendApiDataObj = {
             '<?php echo systemProject;?>': 'Masters',
             '<?php echo systemModuleFunction;?>': 'addContactInquiry',
@@ -351,6 +352,7 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
         };
 
         APICallAjax(sendApiDataObj, function(response) {
+location.reload();
             if (response.responseCode == resultOk) {
 
             }

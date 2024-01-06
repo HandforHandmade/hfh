@@ -63,10 +63,10 @@ include("DB/connection.php");
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="true" aria-expanded="false"> Our Activities </a>
                             <ul class="dropdown-menu" id="activityDropDown">
-                            <li><a href="handmade-academy.php"> Handmade Academy </a></li>
+
                                 <?php
                                 global $master_conn;
-                            $eventCategoryResult = mysqli_query($master_conn, "SELECT * FROM category WHERE status = 'Active' ORDER BY event_display_order ASC");
+                                $eventCategoryResult = mysqli_query($master_conn, "SELECT * FROM category WHERE status='Active' ORDER BY event_display_order ASC");
 
                                 while ($RowData = mysqli_fetch_assoc($eventCategoryResult)) {
                                     $id = $RowData['id'];

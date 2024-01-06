@@ -1,0 +1,4 @@
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "img-src 'self' http://"
+#header("Content-Security-Policy: img-src 'self' http://;");
+</IfModule>

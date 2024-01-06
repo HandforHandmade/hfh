@@ -80,13 +80,13 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                 <div class="col-lg-10">
                     <div class="main_blog_inner single_blog_inner">
                         <div class="d-none" id="eventVideoDiv">
-	 <iframe style="height: 50%; width:100%"  src="" id="eventVideo"></iframe>
+	 <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no"  style="height: 500px; width:1000px"  src="" id="eventVideo"></iframe>
 </div>
                         <div class="blog_item">
                        
 <br>
                             <div class="blog_img">
-                                <img class="img-fluid img-responsive" src=""  id="eventImage" alt="" style="width:100%">
+                                <img class="img-fluid img-responsive" src=""  id="eventImage" alt="" style="width:100%;height:30%">
                             </div>
 <br>
                             <div class="blog_text">

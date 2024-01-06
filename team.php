@@ -31,7 +31,7 @@ include_once 'include/APICALL.php';
 
     <style>
     .doc-img {
-        height: 290px;
+        height: 200px;
         width: 240px;
     }
 
@@ -169,7 +169,7 @@ include_once 'include/APICALL.php';
                             '" data-fancybox="modal-user" data-src="#modal-user" class="teamModal profile-widget">';
                         teamDiv += '<div class="doc-img">';
                         teamDiv += ' <a href="#">';
-                        teamDiv += '<img style="height: 250px;"  class="img-fluid" alt="" src="'+ADMIN_BASE_URL + userData
+                        teamDiv += '<img style="height: 200px;"  class="img-fluid" alt="" src="'+ADMIN_BASE_URL + userData
                             .imagePath1 + '"/>';
                         teamDiv += '</a>';
                         teamDiv += '</div>';
@@ -177,7 +177,7 @@ include_once 'include/APICALL.php';
                         teamDiv += '<h3 class="title" style="font-size: 18px">';
                         teamDiv += '<a href="#"> ' + userData.userName + ' </a>';
                         teamDiv += '</h3>';
-                        teamDiv += '<p class="speciality"> ' + userData.userName + '  </p>';
+                        teamDiv += '<p class="speciality"> ' + userData.designation + '  </p>';
                         teamDiv += '</div>';
                         teamDiv += '</div>';
                         teamDiv += '</div>';
@@ -206,7 +206,7 @@ include_once 'include/APICALL.php';
         APICallAjax(sendApiDataObj, function(response) {
             if (response.responseCode == resultOk) {
                 let teamDiv = '<div class="row">';
-                for (let i = 0; i < response.result.users.length; i++) {
+                 for (let i = 0; i < response.result.users.length; i++) {
                     let users = response.result.users[i];
                     teamDiv += '<div class="col-12 col-md-4 modal-img-area">';
                        teamDiv += '<img class="img-fluid" src="'+ADMIN_BASE_URL + users.imagePath1 +'" alt=""></div>';
@@ -228,8 +228,8 @@ include_once 'include/APICALL.php';
                             teamDiv +='<li><a href="' + users.webLink +'" target="_blank"><i class="fa fa-link" style="padding 10px;!important;padding: 8px;"></i></a></li>';
                         }
                         
-                        if(users.instagram_link!=''){
-                            teamDiv +='<li><a href="' + users.instagram_link +'" target="_blank"><i class="fa fa-instagram" style="padding 10px;!important;padding: 8px;"></i></a></li>';
+                        if(users.instagramLink!=''){
+                            teamDiv +='<li><a href="' + users.instagramLink +'" target="_blank"><i class="fa fa-instagram" style="padding 10px;!important;padding: 8px;"></i></a></li>';
                         }
                         
                         teamDiv +='</ul>';
