@@ -54,6 +54,18 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+    .l_news_item {
+        max-height: 100% !important;
+        min-height: 80% !important;
+    }
+
+    .categoryDescription {
+        min-height: 25%;
+        max-height: 25%;
+    }
+    </style>
 </head>
 
 <body>
@@ -68,47 +80,91 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
     <section class="main_slider_area">
         <div id="main_slider" class="rev_slider" data-version="5.3.1.6">
             <ul>
-                <li data-index="rs-1587" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="img/sliders/slider-1.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <li data-index="rs-1587" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
+                    data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300"
+                    data-thumb="img/sliders/slider-1.jpg" data-rotate="0" data-saveperformance="off"
+                    data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5=""
+                    data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="img/sliders/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                    <img src="img/sliders/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
+                        data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
 
                     <!-- LAYER NR. 1 -->
                     <div class="slider_text_box">
-                        <div class="tp-caption tp-resizeme first_text" data-x="['left','left','left','15','15']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['175','175','125','165','160']" data-fontsize="['65','65','65','40','30']" data-lineheight="['80','80','80','50','40']" data-width="['800','800','800','500']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]" data-textAlign="['left','left','left','left']">
+                        <div class="tp-caption tp-resizeme first_text" data-x="['left','left','left','15','15']"
+                            data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']"
+                            data-voffset="['175','175','125','165','160']" data-fontsize="['65','65','65','40','30']"
+                            data-lineheight="['80','80','80','50','40']" data-width="['800','800','800','500']"
+                            data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on"
+                            data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
+                            data-textAlign="['left','left','left','left']">
                             Natural Dyeing with Natural Mordant
                         </div>
 
-                        <div class="tp-caption tp-resizeme secand_text" data-x="['left','left','left','15','15']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['345','345','300','300','250']" data-fontsize="['20','20','20','20','16']" data-lineheight="['28','28','28','28']" data-width="['640','640','640','640','350']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-transform_idle="o:1;" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
+                        <div class="tp-caption tp-resizeme secand_text" data-x="['left','left','left','15','15']"
+                            data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']"
+                            data-voffset="['345','345','300','300','250']" data-fontsize="['20','20','20','20','16']"
+                            data-lineheight="['28','28','28','28']" data-width="['640','640','640','640','350']"
+                            data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on"
+                            data-transform_idle="o:1;"
+                            data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
                             Textile enthusiasts can look forward to learning the nuances of natural dyeing at the
                             “Natural
                             Dyeing with Natural Mordant” workshop organized Dr Pushyamitra Joshi, Founder, EcoFab...
                         </div>
 
-                        <div class="tp-caption tp-resizeme slider_button" data-x="['left','left','left','15','15']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['435','435','390','390','360']" data-fontsize="['14','14','14','14']" data-lineheight="['46','46','46','46']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
+                        <div class="tp-caption tp-resizeme slider_button" data-x="['left','left','left','15','15']"
+                            data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']"
+                            data-voffset="['435','435','390','390','360']" data-fontsize="['14','14','14','14']"
+                            data-lineheight="['46','46','46','46']" data-width="none" data-height="none"
+                            data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                            data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
                             <a class="main_btn" href="#"> Details </a>
                         </div>
                     </div>
                 </li>
 
-                <li data-index="rs-1588" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="img/sliders/2.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <li data-index="rs-1588" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
+                    data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300"
+                    data-thumb="img/sliders/2.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative"
+                    data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
+                    data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="img/sliders/2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                    <img src="img/sliders/2.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
+                        data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
                     <!-- LAYERS -->
 
                     <!-- LAYER NR. 1 -->
                     <div class="slider_text_box">
-                        <div class="tp-caption tp-resizeme first_text" data-x="['left','left','left','15','15']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['175','175','125','165','160']" data-fontsize="['65','65','65','40','30']" data-lineheight="['80','80','80','50','40']" data-width="['800','800','800','500']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]" data-textAlign="['left','left','left','left']">Indonesian Batik, <br> Indian Expressions
+                        <div class="tp-caption tp-resizeme first_text" data-x="['left','left','left','15','15']"
+                            data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']"
+                            data-voffset="['175','175','125','165','160']" data-fontsize="['65','65','65','40','30']"
+                            data-lineheight="['80','80','80','50','40']" data-width="['800','800','800','500']"
+                            data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on"
+                            data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
+                            data-textAlign="['left','left','left','left']">Indonesian Batik, <br> Indian Expressions
                         </div>
 
-                        <div class="tp-caption tp-resizeme secand_text" data-x="['left','left','left','15','15']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['345','345','300','300','250']" data-fontsize="['20','20','20','20','16']" data-lineheight="['28','28','28','28']" data-width="['640','640','640','640','350']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-transform_idle="o:1;" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
+                        <div class="tp-caption tp-resizeme secand_text" data-x="['left','left','left','15','15']"
+                            data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']"
+                            data-voffset="['345','345','300','300','250']" data-fontsize="['20','20','20','20','16']"
+                            data-lineheight="['28','28','28','28']" data-width="['640','640','640','640','350']"
+                            data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on"
+                            data-transform_idle="o:1;"
+                            data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
                             Batik is a technique that requires patience, creativity and imagination. It involves time,
                             effort, multiple processes and one can only see the end result after all the processes have
                             been
                             completed
                         </div>
 
-                        <div class="tp-caption tp-resizeme slider_button" data-x="['left','left','left','15','15']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['435','435','390','390','360']" data-fontsize="['14','14','14','14']" data-lineheight="['46','46','46','46']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
+                        <div class="tp-caption tp-resizeme slider_button" data-x="['left','left','left','15','15']"
+                            data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']"
+                            data-voffset="['435','435','390','390','360']" data-fontsize="['14','14','14','14']"
+                            data-lineheight="['46','46','46','46']" data-width="none" data-height="none"
+                            data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                            data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]">
                             <a class="main_btn" href="#"> Details </a>
                         </div>
                     </div>
@@ -222,16 +278,18 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                     $query = mysqli_query($master_conn, "SELECT user_master.*,category_master.name AS categoryName 
                     FROM user_master LEFT JOIN category_master ON category_master.id=user_master.category_id ORDER BY name ASC");
                     while ($row = mysqli_fetch_assoc($query)) { ?>
-                        <div class="item">
-                            <div class="cake_feature_item">
-                                <div class="cake_img">
-                                    <img style="min-height: 275px;max-height: 275px;" class="img-fluid" src="<?php echo BASE_URL; ?>/assets/attachment/users/<?php echo $row['image'] ?>" alt="">
-                                </div>
-                                <div class="cake_text">
-                                    <h3> <?php echo substr($row['name'], 0, 10) ?> </h3>
-                                </div>
+                    <div class="item">
+                        <div class="cake_feature_item">
+                            <div class="cake_img">
+                                <img style="min-height: 275px;max-height: 275px;" class="img-fluid"
+                                    src="<?php echo BASE_URL; ?>/assets/attachment/users/<?php echo $row['image'] ?>"
+                                    alt="">
+                            </div>
+                            <div class="cake_text">
+                                <h3> <?php echo substr($row['name'], 0, 10) ?> </h3>
                             </div>
                         </div>
+                    </div>
                     <?php }
                     ?>
                 </div>
@@ -289,132 +347,133 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
     <script src="js/theme.js"></script>
 
     <script>
-        $(document).ready(function() {
-            getUserMasterDetails();
-            getUserActivity();
-            getfounderAndDirectors();
+    $(document).ready(function() {
+        getUserMasterDetails();
+        getUserActivity();
+        getfounderAndDirectors();
+    });
+
+    function getUserMasterDetails() {
+        let resultOk = '<?php echo resultOk; ?>';
+        let sendApiDataObj = {
+            '<?php echo systemProject; ?>': 'Masters',
+            '<?php echo systemModuleFunction; ?>': 'getUserMasterDetails',
+            'userMasterId': $('#userMasterId').val(),
+        };
+        APICallAjax(sendApiDataObj, function(response) {
+            let html = '';
+            if (response.responseCode == resultOk) {
+                for (let i = 0; i < response.result.userMaster.length; i++) {
+
+                    let userMaster = response.result.userMaster[i];
+
+                    $("#userFacebookLink").attr("href", userMaster.facebookLink);
+                    $("#userTwitterLink").attr("href", userMaster.twitterLink);
+                    $("#userGooglePlusLink").attr("href", userMaster.googlePlusLink);
+                    $("#userLinkedinLink").attr("href", userMaster.linkedinLink);
+                    $("#userEmail").attr("href", "mailto:'" + userMaster.email + "'").text(userMaster.email);
+                    $(".whatsApp").attr("href", "https://wa.me/+91" + userMaster.mobile);
+                    $('#userAddress').html(userMaster.state);
+                    $('#userAbout').html(userMaster.aboutSelf);
+                    $('.pro-user').html('<img src="' + userMaster.image + '" alt="user" id="">');
+                }
+            }
+
         });
 
-        function getUserMasterDetails() {
-            let resultOk = '<?php echo resultOk; ?>';
-            let sendApiDataObj = {
-                '<?php echo systemProject; ?>': 'Masters',
-                '<?php echo systemModuleFunction; ?>': 'getUserMasterDetails',
-                'userMasterId': $('#userMasterId').val(),
-            };
-            APICallAjax(sendApiDataObj, function(response) {
-                let html = '';
-                if (response.responseCode == resultOk) {
-                    for (let i = 0; i < response.result.userMaster.length; i++) {
+    }
 
-                        let userMaster = response.result.userMaster[i];
-
-                        $("#userFacebookLink").attr("href", userMaster.facebookLink);
-                        $("#userTwitterLink").attr("href", userMaster.twitterLink);
-                        $("#userGooglePlusLink").attr("href", userMaster.googlePlusLink);
-                        $("#userLinkedinLink").attr("href", userMaster.linkedinLink);
-                        $("#userEmail").attr("href", "mailto:'" + userMaster.email + "'").text(userMaster.email);
-                        $(".whatsApp").attr("href", "https://wa.me/+91" + userMaster.mobile);
-                        $('#userAddress').html(userMaster.state);
-                        $('#userAbout').html(userMaster.aboutSelf);
-                        $('.pro-user').html('<img src="' + userMaster.image + '" alt="user" id="">');
-                    }
+    function getUserActivity() {
+        let resultOk = '<?php echo resultOk; ?>';
+        let sendApiDataObj = {
+            '<?php echo systemProject; ?>': 'Masters',
+            '<?php echo systemModuleFunction; ?>': 'getCategoryDetails'
+        };
+        APICallAjax(sendApiDataObj, function(response) {
+            let htmlData = '';
+            if (response.responseCode == resultOk) {
+                for (let i = 0; i < response.result.category.length; i++) {
+                    let category = response.result.category[i];
+                    htmlData += '<div class="col-lg-4 col-md-6">';
+                    htmlData += '<div class="l_news_item">';
+                    htmlData += '<div class="l_news_img">';
+                    htmlData += '<img class="img-fluid" style="height: 210px;width: 354px;" src="' +
+                        ADMIN_BASE_URL + 'resources/img/category/' + category.image + '" alt="">';
+                    htmlData += '</div>';
+                    htmlData += '<div class="l_news_text">';
+                    htmlData += '<a href="#"><h5> Alimur Village, Dibrugarh | ASSAM </h5>';
+                    htmlData += '</a>';
+                    htmlData += '<a href="event-list.php?id=' + category.id + '">';
+                    htmlData += '<h4> ' + category.name + ' </h4>';
+                    htmlData += '</a>';
+                    htmlData += '<div class="categoryDescription"><p>' + category.description.substr(0, 180) +
+                        '</p></div>';
+                    htmlData += '<a class="pest_btn" href="event-list.php?id=' + category.id +
+                        '"> Read More </a>';
+                    htmlData += '</div>';
+                    htmlData += '</div>';
+                    htmlData += '</div>';
                 }
+                $('.ourActivityDetails').html(htmlData);
+            }
+        });
+    }
 
-            });
-
-        }
-
-        function getUserActivity() {
-            let resultOk = '<?php echo resultOk; ?>';
-            let sendApiDataObj = {
-                '<?php echo systemProject; ?>': 'Masters',
-                '<?php echo systemModuleFunction; ?>': 'getCategoryDetails'
-            };
-            APICallAjax(sendApiDataObj, function(response) {
-                let htmlData = '';
-                if (response.responseCode == resultOk) {
-                    for (let i = 0; i < response.result.category.length; i++) {
-                        let category = response.result.category[i];
-                        htmlData += '<div class="col-lg-4 col-md-6">';
-                        htmlData += '<div class="l_news_item">';
-                        htmlData += '<div class="l_news_img">';
-                        htmlData += '<img class="img-fluid" style="height: 210px;width: 354px;" src="' +
-                            ADMIN_BASE_URL + 'resources/img/category/' + category.image + '" alt="">';
-                        htmlData += '</div>';
-                        htmlData += '<div class="l_news_text">';
-                        htmlData += '<a href="#"><h5> Alimur Village, Dibrugarh | ASSAM </h5>';
-                        htmlData += '</a>';
-                        htmlData += '<a href="event-list.php?id=' + category.id + '">';
-                        htmlData += '<h4> ' + category.name + ' </h4>';
-                        htmlData += '</a>';
-                        htmlData += '<p>' + category.description.substr(0, 200) + '</p>';
-                        htmlData += '<a class="pest_btn" href="event-list.php?id=' + category.id +
-                            '"> Read More </a>';
-                        htmlData += '</div>';
-                        htmlData += '</div>';
-                        htmlData += '</div>';
+    function getfounderAndDirectors() {
+        let resultOk = '<?php echo resultOk; ?>';
+        let sendApiDataObj = {
+            '<?php echo systemProject; ?>': 'Masters',
+            '<?php echo systemModuleFunction; ?>': 'getUsersDetails',
+            'userTypeId': '4',
+        };
+        APICallAjax(sendApiDataObj, function(response) {
+            let founderData = '<div class="col-lg-12 col-12">';
+            founderData += '<div class="chef_text_item">';
+            founderData += '<div class="main_title">';
+            founderData += '<h2> Founder and Directors </h2>';
+            founderData +=
+                '<p>Shibani Dasgupta Jain an alumna of NID and founder of Baaya Design and founder and director of Hand for Handmade Foundation.Our two other directors are Vipul Jain; an alumnus of IIT-K and IIM-A and a serial tech entrepreneur and Architect Chirashree Thakkar; a heritage evangelist and an ardent advocate of conserving India’s handmade heritage</p>';
+            founderData += '</div>';
+            founderData += '</div>';
+            founderData += '</div>';
+            if (response.responseCode == resultOk) {
+                for (let i = 0; i < response.result.users.length; i++) {
+                    let users = response.result.users[i];
+                    founderData += '<div class="col-lg-3 col-6">';
+                    founderData += '<div class="chef_item">';
+                    founderData += '<div class="chef_img">';
+                    founderData += '<img style="height: 230px;width: 200px;"  class="img-fluid" src="' +
+                        ADMIN_BASE_URL + users.imagePath1 + '" alt="">';
+                    founderData += '<ul class="list_style">';
+                    if (users.twitterLink != '') {
+                        founderData += '<li><a href="' + users.twitterLink +
+                            '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
                     }
-                    $('.ourActivityDetails').html(htmlData);
-                }
-            });
-        }
-
-        function getfounderAndDirectors() {
-            let resultOk = '<?php echo resultOk; ?>';
-            let sendApiDataObj = {
-                '<?php echo systemProject; ?>': 'Masters',
-                '<?php echo systemModuleFunction; ?>': 'getUsersDetails',
-                'userTypeId': '4',
-            };
-            APICallAjax(sendApiDataObj, function(response) {
-                let founderData = '<div class="col-lg-12 col-12">';
-                founderData += '<div class="chef_text_item">';
-                founderData += '<div class="main_title">';
-                founderData += '<h2> Founder and Directors </h2>';
-                founderData +=
-                    '<p>Shibani Dasgupta Jain an alumna of NID and founder of Baaya Design and founder and director of Hand for Handmade Foundation.Our two other directors are Vipul Jain; an alumnus of IIT-K and IIM-A and a serial tech entrepreneur and Architect Chirashree Thakkar; a heritage evangelist and an ardent advocate of conserving India’s handmade heritage</p>';
-                founderData += '</div>';
-                founderData += '</div>';
-                founderData += '</div>';
-                if (response.responseCode == resultOk) {
-                    for (let i = 0; i < response.result.users.length; i++) {
-                        let users = response.result.users[i];
-                        founderData += '<div class="col-lg-3 col-6">';
-                        founderData += '<div class="chef_item">';
-                        founderData += '<div class="chef_img">';
-                        founderData += '<img style="height: 230px;width: 200px;"  class="img-fluid" src="' +
-                            ADMIN_BASE_URL + users.imagePath1 + '" alt="">';
-                        founderData += '<ul class="list_style">';
-                        if (users.twitterLink != '') {
-                            founderData += '<li><a href="' + users.twitterLink +
-                                '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
-                        }
-                        if (users.linkdInLink != '') {
-                            founderData += '<li><a href="' + users.linkdInLink +
-                                '" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>';
-                        }
-                        if (users.facebookLink != '') {
-                            founderData += '<li><a href="' + users.facebookLink +
-                                '" target="_blank"><i class="fa fa-facebook-square"></i></a></li>';
-                        }
-                        if (users.instagramLink != '') {
-                            founderData += '<li><a href="' + users.instagramLink +
-                                '" target="_blank"><i class="fa fa-instagram-square"></i></a></li>';
-                        }
-                        founderData += '</ul>';
-                        founderData += '</div>';
-                        founderData += '<a href="#">';
-                        founderData += '<h4>' + users.userName + '</h4>';
-                        founderData += '</a>';
-                        founderData += '<h5> ' + users.designation + ' </h5>';
-                        founderData += '</div>';
-                        founderData += '</div>';
+                    if (users.linkdInLink != '') {
+                        founderData += '<li><a href="' + users.linkdInLink +
+                            '" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>';
                     }
-                    $('.founderAndDirectorsDiv').html(founderData);
+                    if (users.facebookLink != '') {
+                        founderData += '<li><a href="' + users.facebookLink +
+                            '" target="_blank"><i class="fa fa-facebook-square"></i></a></li>';
+                    }
+                    if (users.instagramLink != '') {
+                        founderData += '<li><a href="' + users.instagramLink +
+                            '" target="_blank"><i class="fa fa-instagram-square"></i></a></li>';
+                    }
+                    founderData += '</ul>';
+                    founderData += '</div>';
+                    founderData += '<a href="#">';
+                    founderData += '<h4>' + users.userName + '</h4>';
+                    founderData += '</a>';
+                    founderData += '<h5> ' + users.designation + ' </h5>';
+                    founderData += '</div>';
+                    founderData += '</div>';
                 }
-            });
-        }
+                $('.founderAndDirectorsDiv').html(founderData);
+            }
+        });
+    }
     </script>
 </body>
 
