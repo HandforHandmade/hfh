@@ -87,7 +87,26 @@ include_once 'include/APICALL.php';
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12" id="teamData">
                     <div class="row">
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
+                        <div class="col-md-3 col-lg-3 col-xl-3 mt-5">
+                            <div class="teamModal profile-widget">
+                                <div class="doc-img">
+                                    <a href="#">
+                                        <img style="height: 200px;" class="img-fluid" alt=""
+                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
+                                    </a>
+                                </div>
+                                <div class="pro-content" style="max-height: 100px;min-height: 100px;">
+                                    <h3 class="title" style="font-size: 18px">
+                                        <a href="#"> NAKSHA </a>
+                                    </h3>
+                                    <p class="speciality"> Kantha of West Bengal
+                                    </p>
+                                    <p class="speciality">Kolkata, West Bengal
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
@@ -103,7 +122,7 @@ include_once 'include/APICALL.php';
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
+                        <div class="col-md-3 col-lg-3 col-xl-3 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
@@ -119,38 +138,7 @@ include_once 'include/APICALL.php';
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
-                            <div class="teamModal profile-widget">
-                                <div class="doc-img">
-                                    <a href="#">
-                                        <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
-                                    </a>
-                                </div>
-                                <div class="pro-content" style="max-height: 100px;min-height: 100px;">
-                                    <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
-                                    </h3>
-                                    <p class="speciality"> </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
-                            <div class="teamModal profile-widget">
-                                <div class="doc-img">
-                                    <a href="#">
-                                        <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
-                                    </a>
-                                </div>
-                                <div class="pro-content" style="max-height: 100px;min-height: 100px;">
-                                    <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
-                                    </h3>
-                                    <p class="speciality"> </p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
