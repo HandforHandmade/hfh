@@ -32,7 +32,7 @@ include_once 'include/APICALL.php';
     <style>
     .doc-img {
         height: 200px;
-        width: 240px;
+
     }
 
     .doc-img img {
@@ -87,12 +87,12 @@ include_once 'include/APICALL.php';
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12" id="teamData">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3 col-xl-3 mt-5">
+                        <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
                                         <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
+                                            src="./assets/attachment/gallery/A-1_Naksha.jpg" />
                                     </a>
                                 </div>
                                 <div class="pro-content" style="max-height: 100px;min-height: 100px;">
@@ -106,106 +106,114 @@ include_once 'include/APICALL.php';
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-3 mt-5">
+                        <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
                                         <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
+                                            src="./assets/attachment//gallery/A-2_Common Threads Studio.jpg" />
                                     </a>
                                 </div>
                                 <div class="pro-content" style="max-height: 100px;min-height: 100px;">
                                     <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
+                                        <a href="#"> Common Threads Studio
+                                        </a>
                                     </h3>
-                                    <p class="speciality"> </p>
+                                    <p class="speciality"> APPLIQUE, QUILTING, EMBROIDERY
+
+                                    </p>
+                                    <p class="speciality">Chennai, Tamil Nadu</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-3 mt-5">
+                        <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
                                         <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
+                                            src="./assets/attachment/gallery/A-3_She Foundation.jpg" />
                                     </a>
                                 </div>
                                 <div class="pro-content" style="max-height: 100px;min-height: 100px;">
                                     <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
+                                        <a href="#"> She Foundation
+                                        </a>
                                     </h3>
-                                    <p class="speciality"> </p>
+                                    <p class="speciality"> Kantha of West Bengal
+
+                                    </p>
+                                    <p class="speciality">Kolkata, West Bengal</p>
+
                                 </div>
                             </div>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
+                        <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
                                         <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
+                                            src="./assets/attachment/gallery/A-4_Miharu.png" />
                                     </a>
                                 </div>
                                 <div class="pro-content" style="max-height: 100px;min-height: 100px;">
                                     <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
+                                        <a href="#"> Miharu </a>
                                     </h3>
-                                    <p class="speciality"> </p>
+                                    <p class="speciality"> Dokra craft
+                                    </p>
+                                    <p class="speciality">Paschim Burdwan, West Bengal
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
+                        <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
                                         <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
+                                            src="./assets/attachment//gallery/A-5_Spun by Welspun.jpg" />
                                     </a>
                                 </div>
                                 <div class="pro-content" style="max-height: 100px;min-height: 100px;">
                                     <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
+                                        <a href="#"> Spun by Welspun
+
+                                        </a>
                                     </h3>
-                                    <p class="speciality"> </p>
+                                    <p class="speciality">Kutchi Embroidery
+
+                                    </p>
+                                    <p class="speciality">Kutch, Gujarat</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
+                        <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
                             <div class="teamModal profile-widget">
                                 <div class="doc-img">
                                     <a href="#">
                                         <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
+                                            src="./assets/attachment/gallery/A-6_Shrujan.jpg" />
                                     </a>
                                 </div>
                                 <div class="pro-content" style="max-height: 100px;min-height: 100px;">
                                     <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
+                                        <a href="#"> Shrujan
+                                        </a>
                                     </h3>
-                                    <p class="speciality"> </p>
+                                    <p class="speciality"> Extinct Stiches of Sodha, Jadeja community from Kutch
+
+                                    </p>
+                                    <p class="speciality">Kutch, Gujarat</p>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 mt-5">
-                            <div class="teamModal profile-widget">
-                                <div class="doc-img">
-                                    <a href="#">
-                                        <img style="height: 200px;" class="img-fluid" alt=""
-                                            src="./assets/attachment/portfolio/portfolio_20230509143140_645a0bf425ca9.png" />
-                                    </a>
-                                </div>
-                                <div class="pro-content" style="max-height: 100px;min-height: 100px;">
-                                    <h3 class="title" style="font-size: 18px">
-                                        <a href="#"> </a>
-                                    </h3>
-                                    <p class="speciality"> </p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
+
                 </div>
             </div>
 

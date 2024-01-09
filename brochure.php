@@ -4,7 +4,18 @@ include_once 'include/common-constat.php';
 include_once 'include/APICALL.php';
 
 $pdf = $_GET['pdf'];
-
+$loginFlag = isset($_SESSION['loginFlag']) && $_SESSION['loginFlag'] === 'FlagTrue' ? true : false;
+if (!empty($pdf)) {
+    if ($pdf === 'about') {
+        $pdfPath = $loginFlag ? 'pdf/Hamari Virasat_Pitch Deck.pdf' : '#';
+        $imagePath = './assets/img/hamarivirast.jpg';
+    } else {
+        $pdfPath = $loginFlag ? 'pdf/brochure.pdf' : '#';
+        $imagePath = './assets/img/Brochure.png';
+    }
+} else {
+    // Handle the case where $pdf is empty (provide a default behavior or error handling)
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +43,7 @@ $pdf = $_GET['pdf'];
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        .doc-img {
-            height: 200px;
-            width: 240px;
-        }
+        .doc-img {}
 
         .doc-img img {
             max-width: 100%;
@@ -87,32 +95,26 @@ $pdf = $_GET['pdf'];
     <section class="testimonials_item_area">
         <div class="container">
             <input type="hidden" id='pdf' value="<?php echo $pdf; ?>" />
-            <?php if (isset($_SESSION) && isset($_SESSION['loginFlag']) && $_SESSION['loginFlag'] === 'FlagTrue') { ?>
-                <div class="row mt-5">
-                    <div class="col-10">
+            <input type="hidden" id='loginFlag' value="<?php echo $loginFlag; ?>" />
 
-                    </div>
-
-                    <div class="col-2">
-                        <div class="form-group flex-box">
-
-                            <a href="pdf/brochure.pdf" class="btn btn-danger rounded btn-lg btn-block d-none" download="" id="brochureBtn">
-                                Download
-                            </a> <a href="pdf/Hamari Virasat_Pitch Deck.pdf" class="btn btn-danger rounded btn-lg btn-block d-none" download="" id="aboutBtn">
-                                Download
-                            </a>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 mt-5"></div>
+                <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
+                    <div class="teamModal profile-widget">
+                        <div class="doc-img">
+                            <?php if ($loginFlag) { ?>
+                                <a href="<?php echo $pdfPath; ?>" target="_blank">
+                                    <img class="img-fluid" alt="" src="<?php echo $imagePath; ?>" />
+                                </a>
+                            <?php } else { ?>
+                                <a href="#" onclick="showLoginAlert()">
+                                    <img class="img-fluid" alt="" src="<?php echo $imagePath; ?>" />
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
-            <div class="row mt-2 ">
-                <div class="col-md-12 col-lg-12 col-xl-12">
-                    <div id="pdfIframeContainer">
-                        <iframe id="pdfIframe" width="100%" height="800px" frameborder="0" style="border: none;"></iframe>
-                    </div>
-                </div>
             </div>
-
         </div>
     </section>
     <!-- /Page Content -->
@@ -166,37 +168,10 @@ $pdf = $_GET['pdf'];
             }
         });
 
-        function openPDF(pdfPath) {
-            // Get the iframe element
-            var pdfIframe = document.getElementById('pdfIframe');
-
-            // Set the src attribute of the iframe to the PDF path
-            pdfIframe.src = pdfPath;
-
-            // Show the iframe container
-            document.getElementById('pdfIframeContainer').style.display = 'block';
-        }
-
-        function downloadPDF() {
-            var pdf = $('#pdf').val();
-            var downloadLink;
-
-            if (pdf == 'Brochure') {
-                downloadLink = document.createElement('a');
-                downloadLink.href = 'pdf/brochure.pdf';
-                downloadLink.download = 'Brochure.pdf';
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            } else {
-                // Handle other PDF download logic here
-                downloadLink = document.createElement('a');
-                downloadLink.href = 'pdf/Hamari Virasat_Pitch Deck.pdf';
-                downloadLink.download = 'Hamari Virasat_Pitch Deck.pdf';
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            }
+        function showLoginAlert() {
+            alert("Please login to view the PDF.");
+            // Redirect to the login page
+            window.location.href = 'signin.php'; // Replace 'login.php' with your actual login page URL
         }
     </script>
 
