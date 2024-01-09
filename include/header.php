@@ -13,10 +13,11 @@ include("DB/connection.php");
             </div>
             <div class="float-right">
                 <ul class="h_social list_style">
-                    <li><a href="https://www.facebook.com/HandForHandmade/"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FHandForHandmade"><i class="fa fa-twitter"></i></a></li>
-                    <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
-                    <li><a href="https://www.linkedin.com/company/a-hand-for-handmade/"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://www.facebook.com/HandForHandmade/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FHandForHandmade" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/a-hand-for-handmade/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://www.instagram.com/handforhandmade?igsh=NWk5YmViaTIzMjlu/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://youtube.com/@handforhandmadefoundation?si=QL_b3IHLsgbjX3mh/" target="_blank"><i class="fa fa-youtube"></i></a></li>
                 </ul>
                 <!-- <ul class="h_search list_style">
                     <li class="shop_cart"><a href="#"><i class="lnr lnr-cart"></i></a></li>
