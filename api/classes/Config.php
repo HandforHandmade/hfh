@@ -129,7 +129,7 @@ class Config
         'HFH_INVALID_TOKEN' => "Yor token is invalid please try again."
     );
 
-    protected $ignoreSMF = ['login', 'refreshToken', 'forgotPassword', 'resetPassword', 'userRegister', 'getQuickLinkDetails', 'getEventDetails', 'getUsersDetails', 'getUserMasterDetails', 'getCategoryDetails'];
+    protected $ignoreSMF = ['login', 'refreshToken', 'forgotPassword', 'resetPassword', 'userRegister', 'getQuickLinkDetails', 'getEventDetails', 'getUsersDetails', 'getUserMasterDetails', 'getCategoryDetails', 'addSubscriber'];
     protected $isMaster = false;
     protected $isAdmin = false;
     public function __construct($HEADERS)

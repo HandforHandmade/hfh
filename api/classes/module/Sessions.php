@@ -209,8 +209,7 @@ class Sessions extends Config
                             'userMasterDOA' => $this->convertNullToEmptyString($row['anniversary']),
                             'userMasterDisplayDOA' => $this->convertNullToEmptyString($this->formatDateTime('d-m-Y', $row['anniversary'])),
                             'userMasterDesignation' => $row['designation'],
-                            'userMasterProfileImageUrl' => $this->generateUserProfileUrl($row['image']),
-                            'is2FA' => $this->is2FA($row['is2FA'])
+                            'userMasterProfileImageUrl' => $this->convertNullToEmptyString($row['image']),
                         );
 
                         if ($this->equals($row['status'], $this->arrayAllStatus['sessions']['user']['enable'])) {
@@ -450,7 +449,7 @@ class Sessions extends Config
                             if ($queryUserData->rowCount() > 0) {
                                 $this->successData("Profile changed");
                                 foreach ($queryUserData->fetchAll(PDO::FETCH_ASSOC) as $rowUserData) {
-                                    $this->data = array('userMasterProfileImageUrl' => $this->generateUserProfileUrl($rowUserData['image']));
+                                    $this->data = array('userMasterProfileImageUrl' => '');
                                 }
                                 $this::$result = array('userMaster' => $this->data);
                             }
@@ -629,15 +628,15 @@ class Sessions extends Config
                 }
                 if ($this->equals($this->actionType, 'profileUpdate')) {
 
-                     //$sql = "DELETE FROM `user_tags` WHERE `user_id`  = :id";                    
+                    //$sql = "DELETE FROM `user_tags` WHERE `user_id`  = :id";                    
                     // $stmt = $this->pdo->prepare($sql);
                     // $stmt->bindParam(':id', "55");
                     // $stmt->execute();  
-                    
 
-                     $deleteQuery = $this::$masterConn->prepare("DELETE FROM `user_tags` WHERE `user_id` = 55");
-                     $deleteQuery->execute(); 
-                    foreach ($tagIds AS $tagId) {
+
+                    $deleteQuery = $this::$masterConn->prepare("DELETE FROM `user_tags` WHERE `user_id` = 55");
+                    $deleteQuery->execute();
+                    foreach ($tagIds as $tagId) {
                         $appendQuery = $this::$masterConn->prepare("INSERT INTO user_tags (user_id,tag_id) VALUES ('$userId','$tagId')");
                         $appendQuery->execute();
                     }
@@ -659,14 +658,14 @@ class Sessions extends Config
 
             $query = $this::$masterConn->prepare($appendQuery);
 
-            
+
             if ($query->execute()) {
 
                 if ($this->equals($action, 'add')) {
-                    $body = "Name:" . $name. "<br>";
-                    $body .= "Email Id:" . $name. "<br>";
-                    $body .= "Member category:" . $name. "<br>";
-                    $body .= "Link to the member page:" . $name. "<br>";
+                    $body = "Name:" . $name . "<br>";
+                    $body .= "Email Id:" . $name . "<br>";
+                    $body .= "Member category:" . $name . "<br>";
+                    $body .= "Link to the member page:" . $name . "<br>";
 
 
                     $emailArray = array(
@@ -681,7 +680,7 @@ class Sessions extends Config
                         'FromEmailName' => $this->emailFromName,
                         'ReplayEmailId' => '',
                         'ReplayEmailName' => '',
-                        'ToEmailId' =>[['Name'=>'Pinank','Id'=>'rs.pinanksoni@gmal.com'],['Name'=>'h','Id'=>'rs.pinanksoni@gmal.com']],
+                        'ToEmailId' => [['Name' => 'Pinank', 'Id' => 'rs.pinanksoni@gmal.com'], ['Name' => 'h', 'Id' => 'rs.pinanksoni@gmal.com']],
                         'CCEmailId' => [],
                         'BCCEmailId' => [],
                         'Attachment' => '',
@@ -689,14 +688,12 @@ class Sessions extends Config
 
                     $emailInstance = new Email($emailArray);
                     if ($emailInstance->SendEmail($emailArray)) {
-
                     } else {
                         $this->noData(Email::$emailErrorMsg);
                     }
                 }
 
                 $this->successData("Registration $action");
-
             } else {
                 $this->failureData();
             }

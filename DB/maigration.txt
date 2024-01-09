@@ -79,7 +79,22 @@ CREATE TABLE `contact_inquiry` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 
-***********END query 28-March-2023********************
+
 
 
 ALTER TABLE `event` ADD `video_link` TEXT NULL DEFAULT NULL AFTER `img_path`;
+***********END query 28-March-2023********************
+
+*********** query 09-Jan-2024********************
+
+CREATE TABLE `subscriber` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NULL,
+  `contact` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+
+  ALTER TABLE `subscriber` 
+CHANGE COLUMN `id` `id` INT NOT NULL AUTO_INCREMENT ;
+
+***********END query 09-Jan-2024********************

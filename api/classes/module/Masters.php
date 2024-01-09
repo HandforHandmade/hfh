@@ -55,7 +55,6 @@ class Masters extends Config
     public function getQuickLinkDetails()
     {
 
-
         try {
 
             $linkId = $this->handleSpecialCharacters($_POST['linkId']);
@@ -97,7 +96,6 @@ class Masters extends Config
 
             $categoryId = $this->handleSpecialCharacters($_POST['categoryId']);
             $parentId = $this->handleSpecialCharacters($_POST['parentId']);
-
 
             if ($this->isNotNullOrEmptyOrZero($parentId)) {
                 $appendQuery = " WHERE parent_id = '$parentId' ";
@@ -153,8 +151,8 @@ class Masters extends Config
 
             $query = $this::$masterConn->prepare("SELECT
     users.*,user_type.type_name AS userType
-FROM users 
- LEFT JOIN user_type ON user_type.id=users.user_type 
+FROM users
+ LEFT JOIN user_type ON user_type.id=users.user_type
  $appendQuery ORDER BY display_order ASC");
 
             if ($query->execute()) {
@@ -168,18 +166,18 @@ FROM users
                             'userDesc' => $this->convertNullToEmptyString($row['user_desc']),
                             'designation' => $this->convertNullToEmptyString($row['designation']),
                             'imagePath' => $this->generateUserProfileAttachmentUrl($row['img_path']),
-			    'imagePath1' => $this->convertNullToEmptyString($row['img_path']),
+                            'imagePath1' => $this->convertNullToEmptyString($row['img_path']),
                             'userType' => $this->convertNullToEmptyString($row['userType']),
                             'userTypeId' => $this->convertNullToEmptyString($row['user_type']),
-                            'facebookLink' =>  $this->convertNullToEmptyString($row['facebook_link']),
-                            'twitterLink' =>  $this->convertNullToEmptyString($row['twitter_link']),
-                            'linkdInLink' =>  $this->convertNullToEmptyString($row['linkedin_link']),
-                            'webLink' =>  $this->convertNullToEmptyString($row['website']),
-                            'facebookLink' =>  $this->convertNullToEmptyString($row['facebook_link']),
-                            'twitterLink' =>  $this->convertNullToEmptyString($row['twitter_link']),
-                            'linkdInLink' =>  $this->convertNullToEmptyString($row['linkedin_link']),
-                            'webLink' =>  $this->convertNullToEmptyString($row['website']),
-'instagramLink' =>  $this->convertNullToEmptyString($row['instagram_link']),
+                            'facebookLink' => $this->convertNullToEmptyString($row['facebook_link']),
+                            'twitterLink' => $this->convertNullToEmptyString($row['twitter_link']),
+                            'linkdInLink' => $this->convertNullToEmptyString($row['linkedin_link']),
+                            'webLink' => $this->convertNullToEmptyString($row['website']),
+                            'facebookLink' => $this->convertNullToEmptyString($row['facebook_link']),
+                            'twitterLink' => $this->convertNullToEmptyString($row['twitter_link']),
+                            'linkdInLink' => $this->convertNullToEmptyString($row['linkedin_link']),
+                            'webLink' => $this->convertNullToEmptyString($row['website']),
+                            'instagramLink' => $this->convertNullToEmptyString($row['instagram_link']),
                         );
                     }
                     $this::$result = array('users' => $this->data);
@@ -208,15 +206,14 @@ FROM users
             if ($this->isNotNullOrEmptyOrZero($eventId)) {
                 $appendQuery = " WHERE event.id = '$eventId' ";
             }
-            $query = $this::$masterConn->prepare("SELECT 
+            $query = $this::$masterConn->prepare("SELECT
     event.*,
     category.category_name AS categoryName,
     category.cat_desc AS categoryDesc
 FROM event
-LEFT JOIN category ON category.id = event.category_id 
+LEFT JOIN category ON category.id = event.category_id
 $appendQuery  AND event.status ='Active'
 ORDER BY event.event_order ASC, event.event_name ASC;");
-
 
             if ($query->execute()) {
                 if ($query->rowCount() > 0) {
@@ -260,7 +257,7 @@ ORDER BY event.event_order ASC, event.event_name ASC;");
                 $appendQuery = " WHERE user_master.id = '$userMasterId' ";
             }
             $query = $this::$masterConn->prepare("SELECT `user_master`.*,category_master.name AS categoryName FROM `user_master` LEFT JOIN category_master ON category_master.id=`user_master`.category_id $appendQuery ORDER BY name ASC ");
-            
+
             if ($query->execute()) {
                 if ($query->rowCount() > 0) {
                     $this->successData();
@@ -331,7 +328,7 @@ ORDER BY event.event_order ASC, event.event_name ASC;");
                             'userPhoto' => $this->convertNullToEmptyString($row['image']),
                             'image' => $this->generateUserProfileAttachmentUrl($row['image']),
                             'portfolioArray' => $portfolioArr,
-                            'catalogueArray' => $catalogueArr
+                            'catalogueArray' => $catalogueArr,
                         );
                     }
                     $this::$result = array('userMaster' => $this->data);
@@ -496,7 +493,6 @@ ORDER BY event.event_order ASC, event.event_name ASC;");
             $id = $this->handleSpecialCharacters($_POST['id']);
             $name = $this->handleSpecialCharacters($_POST['name']);
 
-
             unlink($name);
         } catch (PDOException $e) {
             $this->exceptionData();
@@ -582,7 +578,6 @@ ORDER BY event.event_order ASC, event.event_name ASC;");
         }
     }
 
-
     public function addContactInquiry()
     {
         try {
@@ -593,20 +588,16 @@ ORDER BY event.event_order ASC, event.event_name ASC;");
             $subject = $this->handleSpecialCharacters($_POST['subject']);
             $remark = $this->handleSpecialCharacters($_POST['remark']);
 
-
-
             $queryUpdate = $this::$masterConn->prepare("INSERT INTO `contact_inquiry`(`name`, `email`, `mobile`, `subject`, `remark`) VALUES ('$name','$email','$mobile','$subject','$remark')");
-           
-    if ($queryUpdate->execute()) {
+
+            if ($queryUpdate->execute()) {
                 if ($queryUpdate->rowCount() > 0) {
-        
-                   
+
                     $body = "Name:" . $name . "<br>";
                     $body .= "Email Id:" . $email . "<br>";
                     $body .= "Phone:" . $mobile . "<br>";
                     $body .= "Subject:" . $subject . "<br>";
                     $body .= "Remark:" . $remark . "<br>";
-
 
                     $emailArray = array(
                         'Host' => $this->emailHost,
@@ -626,10 +617,9 @@ ORDER BY event.event_order ASC, event.event_name ASC;");
                         'Attachment' => '',
                     );
 
-
                     $emailInstance = new Email($emailArray);
                     if ($emailInstance->SendEmail($emailArray)) {
- $this->successData();
+                        $this->successData();
                     } else {
                         $this->noData(Email::$emailErrorMsg);
                     }
@@ -639,6 +629,26 @@ ORDER BY event.event_order ASC, event.event_name ASC;");
             }
         } catch (PDOException $e) {
             $this->exceptionData();
+        }
+    }
+
+    public function addSubscriber()
+    {
+        try {
+
+            $name = $this->handleSpecialCharacters($_POST['name']);
+            $email = $this->handleSpecialCharacters($_POST['email']);
+            $contactNumber = $this->handleSpecialCharacters($_POST['contactNumber']);
+            $queryUpdate = $this::$masterConn->prepare("INSERT INTO `subscriber`(`name`,`email`,`contact`) VALUES  ('$name','$email','$contactNumber');");
+            if ($queryUpdate->execute()) {
+                if ($queryUpdate->rowCount() > 0) {
+                    $this->successData();
+                }
+            } else {
+                $this->failureData();
+            }
+        } catch (PDOException $e) {
+            $this->exceptionData($e);
         }
     }
 }

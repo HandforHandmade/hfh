@@ -4,13 +4,12 @@ include_once 'include/common-constat.php';
 include_once 'include/APICALL.php';
 
 $pdf = $_GET['pdf'];
-$loginFlag = isset($_SESSION['loginFlag']) && $_SESSION['loginFlag'] === 'FlagTrue' ? true : false;
 if (!empty($pdf)) {
     if ($pdf === 'about') {
-        $pdfPath = $loginFlag ? 'pdf/Hamari Virasat_Pitch Deck.pdf' : '#';
+        $pdfPath =  'pdf/Hamari Virasat_Pitch Deck.pdf';
         $imagePath = './assets/img/hamarivirast.jpg';
     } else {
-        $pdfPath = $loginFlag ? 'pdf/brochure.pdf' : '#';
+        $pdfPath =  'pdf/brochure.pdf';
         $imagePath = './assets/img/Brochure.png';
     }
 } else {
@@ -95,28 +94,57 @@ if (!empty($pdf)) {
     <section class="testimonials_item_area">
         <div class="container">
             <input type="hidden" id='pdf' value="<?php echo $pdf; ?>" />
-            <input type="hidden" id='loginFlag' value="<?php echo $loginFlag; ?>" />
-
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-xl-4 mt-5"></div>
                 <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
                     <div class="teamModal profile-widget">
                         <div class="doc-img">
-                            <?php if ($loginFlag) { ?>
-                                <a href="<?php echo $pdfPath; ?>" target="_blank">
-                                    <img class="img-fluid" alt="" src="<?php echo $imagePath; ?>" />
-                                </a>
-                            <?php } else { ?>
-                                <a href="#" onclick="showLoginAlert()">
-                                    <img class="img-fluid" alt="" src="<?php echo $imagePath; ?>" />
-                                </a>
-                            <?php } ?>
+                            <button onclick="showLoginAlert()">
+                                <img class="img-fluid" alt="" src="<?php echo $imagePath; ?>" />
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <div class="modal" id="subscriberModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Subscribe</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Add this modified form to your modal body -->
+                <div class="modal-body">
+                    <form id="subscriberForm">
+                        <!-- You can add more form groups for additional fields -->
+                        <div class="form-group">
+                            <label for="name">Name<span>*</span>:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email<span>*</span>:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Mobile:</label>
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" required>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- Move the buttons to the modal footer and align them to the right -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addSubscriber()">Subscribe</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <!-- /Page Content -->
 
 
@@ -153,25 +181,43 @@ if (!empty($pdf)) {
 
 
     <script>
-        $(document).ready(function() {
-            let pdf = $('#pdf').val();
-            console.log(pdf)
-            if (pdf == 'Brochure') {
-                openPDF('pdf/brochure.pdf');
-                $('#brochureBtn').removeClass('d-none');
-                $('#aboutBtn').addClass('d-none');
+        function showLoginAlert() {
+
+
+            let subscribeFlag = localStorage.getItem('subscribeFlag');
+            if (subscribeFlag == null) {
+                $('#subscriberModal').modal('show');
+                return false;
             } else {
-                openPDF('pdf/Hamari Virasat_Pitch Deck.pdf');
-                $('#aboutBtn').removeClass('d-none');
-                $('#brochureBtn').addClass('d-none');
+                let pdfPath = '<?php echo $pdfPath; ?>';
+                window.open(pdfPath, '_blank');
 
             }
-        });
 
-        function showLoginAlert() {
-            alert("Please login to view the PDF.");
-            // Redirect to the login page
-            window.location.href = 'signin.php'; // Replace 'login.php' with your actual login page URL
+        }
+
+        function addSubscriber() {
+            let resultOk = '<?php echo resultOk; ?>';
+            let name = $('#name').val();
+            let email = $('#email').val();
+            let contactNumber = $('#contactNumber').val();
+
+
+            let sendApiDataObj = {
+                '<?php echo systemProject; ?>': 'Masters',
+                '<?php echo systemModuleFunction; ?>': 'addSubscriber',
+                'name': name,
+                'email': email,
+                'contactNumber': contactNumber,
+            };
+
+            APICallAjax(sendApiDataObj, function(response) {
+                if (response.responseCode == resultOk) {
+                    localStorage.setItem('subscribeFlag', true);
+                    let pdfPath = '<?php echo $pdfPath; ?>';
+                    window.open(pdfPath, '_blank');
+                }
+            });
         }
     </script>
 
