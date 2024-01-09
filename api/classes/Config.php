@@ -17,7 +17,7 @@ class Config
      * 3) TestServer = Test Server Config set
      */
 
-    const currentModeServer = 'Local'; /* Set User Connection*/
+    const currentModeServer = 'Server'; /* Set User Connection*/
     const currentModeServerConfig = array(
         'Local' => array(
             'baseUrl' => 'http://localhost/hfh/',

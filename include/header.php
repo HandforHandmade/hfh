@@ -9,7 +9,7 @@ include("DB/connection.php");
         <div class="container">
             <div class="float-left">
                 <a href="tell:"><i class="fa fa-phone" aria-hidden="true"></i> +91 87791 55808</a>
-                <a href="mainto:"><i class="fa fa-envelope-o" aria-hidden="true"></i> info@handforhandmade.com </a>
+                <a href="mainto:info@handforhandmade.org"><i class="fa fa-envelope-o" aria-hidden="true"></i> info@handforhandmade.org</a>
             </div>
             <div class="float-right">
                 <ul class="h_social list_style">
@@ -163,4 +163,5 @@ include("DB/connection.php");
         </div>
     </div>
 </header>
+<!--================End Main Header Area =================-->
 <!--================End Main Header Area =================-->
