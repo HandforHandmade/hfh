@@ -395,7 +395,7 @@ i:before {
     .navbar-brand
     img {
     margin-top: 0px;
-    display: none;
+    /* display: none; */
     width: 65%;
 }
 
