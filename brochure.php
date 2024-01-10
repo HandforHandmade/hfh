@@ -131,7 +131,7 @@ if (!empty($pdf)) {
                         </div>
                         <div class="form-group">
                             <label for="email">Mobile:</label>
-                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" required>
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" maxlength="12">
                         </div>
 
                     </form>
@@ -202,6 +202,27 @@ if (!empty($pdf)) {
             let email = $('#email').val();
             let contactNumber = $('#contactNumber').val();
 
+            if (name === '') {
+                alert("Please enter name.");
+                $('#name').focus();
+                return false;
+            }
+
+
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                $('#email').focus();
+                return false;
+            }
+
+            // Contact number validation for a typical mobile number (adjust the regex as needed)
+            let contactNumberRegex = /^\d{10}$/;
+            if (contactNumber !== '' && !contactNumberRegex.test(contactNumber)) {
+                alert("Please enter a valid 10-digit contact number.");
+                $('#contactNumber').focus();
+                return false;
+            }
 
             let sendApiDataObj = {
                 '<?php echo systemProject; ?>': 'Masters',
@@ -219,6 +240,10 @@ if (!empty($pdf)) {
                 }
             });
         }
+
+        $('#contactNumber').on('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        });
     </script>
 
 
