@@ -42,12 +42,12 @@ if (!empty($pdf)) {
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-    .doc-img {}
+        .doc-img {}
 
-    .doc-img img {
-        max-width: 100%;
-        max-height: 100%;
-    }
+        .doc-img img {
+            max-width: 100%;
+            max-height: 100%;
+        }
     </style>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
@@ -122,17 +122,16 @@ if (!empty($pdf)) {
                     <form id="subscriberForm">
                         <!-- You can add more form groups for additional fields -->
                         <div class="form-group">
-                            <label for="name">Name<span>*</span>:</label>
+                            <label for="name">Name: <span style="color:red">*</span></label>
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email<span>*</span>:</label>
+                            <label for="email">Email: <span style="color:red">*</span></label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Mobile:</label>
-                            <input type="text" class="form-control" id="contactNumber" name="contactNumber"
-                                maxlength="12">
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" maxlength="10">
                         </div>
 
                     </form>
@@ -183,69 +182,69 @@ if (!empty($pdf)) {
 
 
     <script>
-    function showLoginAlert() {
+        function showLoginAlert() {
 
 
-        let subscribeFlag = localStorage.getItem('subscribeFlag');
-        if (subscribeFlag == null) {
-            $('#subscriberModal').modal('show');
-            return false;
-        } else {
-            let pdfPath = '<?php echo $pdfPath; ?>';
-            window.open(pdfPath, '_blank');
-
-        }
-
-    }
-
-    function addSubscriber() {
-        let resultOk = '<?php echo resultOk; ?>';
-        let name = $('#name').val();
-        let email = $('#email').val();
-        let contactNumber = $('#contactNumber').val();
-
-        if (name === '') {
-            alert("Please enter name.");
-            $('#name').focus();
-            return false;
-        }
-
-
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (email === '' || !emailRegex.test(email)) {
-            alert("Please enter a valid email address.");
-            $('#email').focus();
-            return false;
-        }
-
-        // Contact number validation for a typical mobile number (adjust the regex as needed)
-        let contactNumberRegex = /^\d{10}$/;
-        if (contactNumber !== '' && !contactNumberRegex.test(contactNumber)) {
-            alert("Please enter a valid 10-digit contact number.");
-            $('#contactNumber').focus();
-            return false;
-        }
-
-        let sendApiDataObj = {
-            '<?php echo systemProject; ?>': 'Masters',
-            '<?php echo systemModuleFunction; ?>': 'addSubscriber',
-            'name': name,
-            'email': email,
-            'contactNumber': contactNumber,
-        };
-
-        APICallAjax(sendApiDataObj, function(response) {
-            if (response.responseCode == resultOk) {
-                localStorage.setItem('subscribeFlag', true);
+            let subscribeFlag = localStorage.getItem('subscribeFlag');
+            if (subscribeFlag == null) {
+                $('#subscriberModal').modal('show');
+                return false;
+            } else {
                 let pdfPath = '<?php echo $pdfPath; ?>';
                 window.open(pdfPath, '_blank');
-            }
-        });
-    }
 
-    $('#contactNumber').on('input', function() {
-        this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
-    });
+            }
+
+        }
+
+        function addSubscriber() {
+            let resultOk = '<?php echo resultOk; ?>';
+            let name = $('#name').val();
+            let email = $('#email').val();
+            let contactNumber = $('#contactNumber').val();
+
+            if (name === '') {
+                alert("Please enter name.");
+                $('#name').focus();
+                return false;
+            }
+
+
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                $('#email').focus();
+                return false;
+            }
+
+            // Contact number validation for a typical mobile number (adjust the regex as needed)
+            let contactNumberRegex = /^\d{10}$/;
+            if (contactNumber !== '' && !contactNumberRegex.test(contactNumber)) {
+                alert("Please enter a valid 10-digit contact number.");
+                $('#contactNumber').focus();
+                return false;
+            }
+
+            let sendApiDataObj = {
+                '<?php echo systemProject; ?>': 'Masters',
+                '<?php echo systemModuleFunction; ?>': 'addSubscriber',
+                'name': name,
+                'email': email,
+                'contactNumber': contactNumber,
+            };
+
+            APICallAjax(sendApiDataObj, function(response) {
+                if (response.responseCode == resultOk) {
+                    localStorage.setItem('subscribeFlag', true);
+                    let pdfPath = '<?php echo $pdfPath; ?>';
+                    window.open(pdfPath, '_blank');
+                }
+            });
+        }
+
+        $('#contactNumber').on('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        });
     </script>
 
 
