@@ -42,12 +42,12 @@ if (!empty($pdf)) {
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        .doc-img {}
+    .doc-img {}
 
-        .doc-img img {
-            max-width: 100%;
-            max-height: 100%;
-        }
+    .doc-img img {
+        max-width: 100%;
+        max-height: 100%;
+    }
     </style>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
@@ -112,7 +112,7 @@ if (!empty($pdf)) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Subscribe</h5>
+                    <h5 class="modal-title">Kindly fill these details to download the brochure</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -131,7 +131,8 @@ if (!empty($pdf)) {
                         </div>
                         <div class="form-group">
                             <label for="email">Mobile:</label>
-                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" maxlength="10">
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber"
+                                maxlength="10">
                         </div>
 
                     </form>
@@ -139,7 +140,7 @@ if (!empty($pdf)) {
                 <!-- Move the buttons to the modal footer and align them to the right -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="addSubscriber()">Subscribe</button>
+                    <button type="button" class="btn btn-primary" onclick="addSubscriber()">Download</button>
                 </div>
 
             </div>
@@ -182,69 +183,69 @@ if (!empty($pdf)) {
 
 
     <script>
-        function showLoginAlert() {
+    function showLoginAlert() {
 
 
-            let subscribeFlag = localStorage.getItem('subscribeFlag');
-            if (subscribeFlag == null) {
-                $('#subscriberModal').modal('show');
-                return false;
-            } else {
+        let subscribeFlag = localStorage.getItem('subscribeFlag');
+        if (subscribeFlag == null) {
+            $('#subscriberModal').modal('show');
+            return false;
+        } else {
+            let pdfPath = '<?php echo $pdfPath; ?>';
+            window.open(pdfPath, '_blank');
+
+        }
+
+    }
+
+    function addSubscriber() {
+        let resultOk = '<?php echo resultOk; ?>';
+        let name = $('#name').val();
+        let email = $('#email').val();
+        let contactNumber = $('#contactNumber').val();
+
+        if (name === '') {
+            alert("Please enter name.");
+            $('#name').focus();
+            return false;
+        }
+
+
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === '' || !emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            $('#email').focus();
+            return false;
+        }
+
+        // Contact number validation for a typical mobile number (adjust the regex as needed)
+        let contactNumberRegex = /^\d{10}$/;
+        if (contactNumber !== '' && !contactNumberRegex.test(contactNumber)) {
+            alert("Please enter a valid 10-digit contact number.");
+            $('#contactNumber').focus();
+            return false;
+        }
+
+        let sendApiDataObj = {
+            '<?php echo systemProject; ?>': 'Masters',
+            '<?php echo systemModuleFunction; ?>': 'addSubscriber',
+            'name': name,
+            'email': email,
+            'contactNumber': contactNumber,
+        };
+
+        APICallAjax(sendApiDataObj, function(response) {
+            if (response.responseCode == resultOk) {
+                localStorage.setItem('subscribeFlag', true);
                 let pdfPath = '<?php echo $pdfPath; ?>';
                 window.open(pdfPath, '_blank');
-
             }
-
-        }
-
-        function addSubscriber() {
-            let resultOk = '<?php echo resultOk; ?>';
-            let name = $('#name').val();
-            let email = $('#email').val();
-            let contactNumber = $('#contactNumber').val();
-
-            if (name === '') {
-                alert("Please enter name.");
-                $('#name').focus();
-                return false;
-            }
-
-
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email === '' || !emailRegex.test(email)) {
-                alert("Please enter a valid email address.");
-                $('#email').focus();
-                return false;
-            }
-
-            // Contact number validation for a typical mobile number (adjust the regex as needed)
-            let contactNumberRegex = /^\d{10}$/;
-            if (contactNumber !== '' && !contactNumberRegex.test(contactNumber)) {
-                alert("Please enter a valid 10-digit contact number.");
-                $('#contactNumber').focus();
-                return false;
-            }
-
-            let sendApiDataObj = {
-                '<?php echo systemProject; ?>': 'Masters',
-                '<?php echo systemModuleFunction; ?>': 'addSubscriber',
-                'name': name,
-                'email': email,
-                'contactNumber': contactNumber,
-            };
-
-            APICallAjax(sendApiDataObj, function(response) {
-                if (response.responseCode == resultOk) {
-                    localStorage.setItem('subscribeFlag', true);
-                    let pdfPath = '<?php echo $pdfPath; ?>';
-                    window.open(pdfPath, '_blank');
-                }
-            });
-        }
-
-        $('#contactNumber').on('input', function() {
-            this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
         });
+    }
+
+    $('#contactNumber').on('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    });
     </script>
 
 
