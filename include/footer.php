@@ -46,8 +46,8 @@
                                     $id = $RowData['id'];
                                 ?>
 
-                                <li><a href="event-list.php?id=<?php echo $id; ?>">
-                                        <?php echo $RowData['category_name']; ?> </a></li>
+                                    <li><a href="event-list.php?id=<?php echo $id; ?>">
+                                            <?php echo $RowData['category_name']; ?> </a></li>
                                 <?php } ?>
                             </ul>
                         </aside>
@@ -101,25 +101,19 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <img style="width: 50%;position: relative;top: -30px;float: right;"
-                            src="img/iA_Foundation.png" />
+                        <img style="width: 50%;position: relative;top: -30px;float: right;" src="img/iA_Foundation.png" />
                         <!-- <a><img style="width: 55%;position: relative;top: -30px;float: right;" src="img/miweb.png" /></a> -->
                     </div>
                     <div class="col-lg-3 col-6">
                         <div class="float-right">
                             <aside class="f_widget f_about_widget">
                                 <ul class="nav">
-                                    <li><a href="https://www.facebook.com/HandForHandmade/" target="_blank"><i
-                                                class="fa fa-facebook" style="padding:8px;"></i></a></li>
-                                    <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FHandForHandmade"
-                                            target="_blank"><i class="fa fa-twitter" style="padding:8px;"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/a-hand-for-handmade/"
-                                            target="_blank"><i class="fa fa-linkedin" style="padding:8px;"></i></a></li>
-                                    <li><a href="https://www.instagram.com/handforhandmade?igsh=NWk5YmViaTIzMjlu"
-                                            target="_blank"><i class="fa fa-instagram" style="padding:8px;"></i></a>
+                                    <li><a href="https://www.facebook.com/HandForHandmade/" target="_blank"><i class="fa fa-facebook" style="padding:8px;"></i></a></li>
+                                    <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FHandForHandmade" target="_blank"><i class="fa fa-twitter" style="padding:8px;"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/a-hand-for-handmade/" target="_blank"><i class="fa fa-linkedin" style="padding:8px;"></i></a></li>
+                                    <li><a href="https://www.instagram.com/handforhandmade?igsh=NWk5YmViaTIzMjlu" target="_blank"><i class="fa fa-instagram" style="padding:8px;"></i></a>
                                     </li>
-                                    <li><a href="https://youtube.com/@handforhandmadefoundation?si=QL_b3IHLsgbjX3mh"
-                                            target="_blank"><i class="fa fa-youtube" style="padding:8px;"></i></a>
+                                    <li><a href="https://youtube.com/@handforhandmadefoundation?si=QL_b3IHLsgbjX3mh" target="_blank"><i class="fa fa-youtube" style="padding:8px;"></i></a>
                                     </li>
                                 </ul>
                             </aside>

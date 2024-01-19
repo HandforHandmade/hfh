@@ -59,7 +59,7 @@ include("DB/connection.php");
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Hamari Virasat </a>
                             <ul class="dropdown-menu">
                                 <li><a href="brochure.php?pdf=about"> About </a></li>
-                                <li><a href="brochure.php?pdf=Brochure"> Brochure </a></li>
+                                <li><a href="brochure.php?pdf=Brochure"> Catalogue </a></li>
                                 <li><a href="mumbai-launch.php"> Mumbai launch </a></li>
 
                             </ul>
