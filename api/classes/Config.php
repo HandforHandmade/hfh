@@ -23,8 +23,8 @@ class Config
             'baseUrl' => 'http://localhost/hfh/',
             'masterConnServer' => 'localhost',
             'masterConnUsername' => 'root',
-            'masterConnPassword' => 'Password123*',
-            'masterConnDBName' => 'hfh_final'
+            'masterConnPassword' => 'Admin@123',
+            'masterConnDBName' => 'hfh'
         ),
         'Server' => array(
             'baseUrl' => 'https://www.handforhandmade.org/',
@@ -129,7 +129,7 @@ class Config
         'HFH_INVALID_TOKEN' => "Yor token is invalid please try again."
     );
 
-    protected $ignoreSMF = ['login', 'refreshToken', 'forgotPassword', 'resetPassword', 'userRegister','getQuickLinkDetails','getEventDetails','getUsersDetails','getUserMasterDetails','getCategoryDetails'];
+    protected $ignoreSMF = ['login', 'refreshToken', 'forgotPassword', 'resetPassword', 'userRegister', 'getQuickLinkDetails', 'getEventDetails', 'getUsersDetails', 'getUserMasterDetails', 'getCategoryDetails', 'addSubscriber'];
     protected $isMaster = false;
     protected $isAdmin = false;
     public function __construct($HEADERS)
@@ -187,10 +187,9 @@ class Config
         global $publicKey;
         try {
             $this->accessToken = isset($HEADERS['Authorization']) ? $HEADERS['Authorization'] : '';
-            try
-            {
+            try {
                 $getPayLoadData = (array)JWT::decode($this->accessToken, $publicKey, ['RS256']);
-            }catch (Exception  $e) {
+            } catch (Exception  $e) {
                 return false;
             }
 
@@ -217,7 +216,10 @@ class Config
         try {
 
             if ($this->isNotNullOrEmptyOrZero($companyMasterConnServer) && $this->isNotNullOrEmptyOrZero($companyMasterConnUsername) && $this->isNotNullOrEmptyOrZero($companyMasterConnDBName)) {
-                $this::$cmConn = new PDO("mysql:host=$companyMasterConnServer;dbname=$companyMasterConnDBName", $companyMasterConnUsername, $companyMasterConnPassword,
+                $this::$cmConn = new PDO(
+                    "mysql:host=$companyMasterConnServer;dbname=$companyMasterConnDBName",
+                    $companyMasterConnUsername,
+                    $companyMasterConnPassword,
                     array(
                         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
                         PDO::ATTR_ERRMODE,
@@ -226,11 +228,9 @@ class Config
                 );
 
                 return true;
-
             } else {
                 return false;
             }
-
         } catch (PDOException $e) {
             $this::$message = $this->APIMessage['ERR_CONN'];
             return false;
@@ -286,16 +286,16 @@ class Config
             case 'seconds':
                 $expirationTime = $issuedAt + $value;
                 break;
-            case 'minutes' :
+            case 'minutes':
                 $expirationTime = $issuedAt + 60 * $value;
                 break;
             case 'hours':
                 $expirationTime = $issuedAt + 60 * 60 * $value;
                 break;
-            case 'days' :
+            case 'days':
                 $expirationTime = $issuedAt + 60 * 60 * 24 * $value;
                 break;
-            default :
+            default:
                 $expirationTime = $issuedAt;
         }
         return $expirationTime;
@@ -334,7 +334,4 @@ class Config
         $this::$message = $string;
         $this::$result = "";
     }
-
 }
-
-?>
