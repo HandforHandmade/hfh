@@ -65,6 +65,10 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
         min-height: 25%;
         max-height: 25%;
     }
+    .doc-img img {
+        max-width: 100%;
+        max-height: 100%;
+    }
     </style>
 </head>
 
@@ -294,6 +298,65 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                     ?>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="latest_news_area p_100">
+        <div class="container">
+            <div class="main_title">
+
+            <?php
+                $imagePath = './assets/img/Brochure.png';
+                $imagePathCatalog = './assets/img/hamarivirast.jpg';
+                
+            ?>
+                <h2> Hamari Virasat </h2>
+                <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
+                    <div class=" profile-widget">
+                        <div class="doc-img">
+                            <a href="brochure.php?pdf=about">
+                                <img class="img-fluid"  style="height: 200px;" alt="" src="<?php echo $imagePath; ?>" />
+                            </a>
+                        </div>
+                        <div class="pro-content" style="max-height: 100px;min-height: 100px;">
+                            <h3 class="title" style="font-size: 18px">
+                                <a href="#"> ABOUT </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
+                    <div class=" profile-widget">
+                        <div class="doc-img">
+                            <a href="brochure.php?pdf=about">
+                                <img class="img-fluid"  style="height: 200px;" alt="" src="<?php echo $imagePathCatalog; ?>" />
+                            </a>
+                        </div>
+                        <div class="pro-content" style="max-height: 100px;min-height: 100px;">
+                            <h3 class="title" style="font-size: 18px">
+                                <a href="#"> CATALOG </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-md-4 col-lg-4 col-xl-4 mt-5">
+                    <div class=" profile-widget">
+                        <div class="doc-img">
+                            <a href="brochure.php?pdf=about">
+                                <img class="img-fluid"  style="height: 200px;" alt="" src="./assets/attachment/gallery/A-2_Common Threads Studio.jpg" />
+                            </a>
+                        </div>
+                        <div class="pro-content" style="max-height: 100px;min-height: 100px;">
+                            <h3 class="title" style="font-size: 18px">
+                                <a href="#"> MUMBAI LAUNCH </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
         </div>
     </section>
     <!--================End members Area =================-->
