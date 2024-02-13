@@ -297,7 +297,11 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
         </div>
     </section>
     <!--================End members Area =================-->
+    <div class="slide-modal-window" id="modal-user" style="display: none">
+        <div class="container userDetails">
 
+        </div>
+    </div>
 
     <div class="tear-footer bot"></div>
 
@@ -322,6 +326,8 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
     <!--================End Search Box Area =================-->
 
 
+    <!-- modal windows -->
+   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -346,6 +352,8 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
 
     <script src="js/theme.js"></script>
 
+
+    
     <script>
     $(document).ready(function() {
         getUserMasterDetails();
@@ -406,10 +414,7 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                     htmlData += '<a href="event-list.php?id=' + category.id + '">';
                     htmlData += '<h4> ' + category.name + ' </h4>';
                     htmlData += '</a>';
-                    htmlData += '<div class="categoryDescription"><p>' + category.description.substr(0, 180) +
-                        '</p></div>';
-                    htmlData += '<a class="pest_btn" href="event-list.php?id=' + category.id +
-                        '"> Read More </a>';
+                
                     htmlData += '</div>';
                     htmlData += '</div>';
                     htmlData += '</div>';
@@ -440,7 +445,7 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                 for (let i = 0; i < response.result.users.length; i++) {
                     let users = response.result.users[i];
                     founderData += '<div class="col-lg-3 col-6">';
-                    founderData += '<div class="chef_item">';
+                    founderData += '<div class="chef_item teamModal" data-id="' + users.id +'">';
                     founderData += '<div class="chef_img">';
                     founderData += '<img style="height: 230px;width: 200px;"  class="img-fluid" src="' +
                         ADMIN_BASE_URL + users.imagePath1 + '" alt="">';
@@ -471,6 +476,60 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
                     founderData += '</div>';
                 }
                 $('.founderAndDirectorsDiv').html(founderData);
+            }
+        });
+    }
+
+    
+    $(document).on('click', '.teamModal', function() {
+        getModalUserDetails($(this).attr('data-id'));
+    });
+
+    function getModalUserDetails(userId) {
+        let resultOk = '<?php echo resultOk; ?>';
+        let sendApiDataObj = {
+            '<?php echo systemProject; ?>': 'Masters',
+            '<?php echo systemModuleFunction; ?>': 'getUsersDetails',
+            'userId': userId,
+        };
+        APICallAjax(sendApiDataObj, function(response) {
+            if (response.responseCode == resultOk) {
+                let teamDiv = '<div class="row">';
+                 for (let i = 0; i < response.result.users.length; i++) {
+                    let users = response.result.users[i];
+                    teamDiv += '<div class="col-12 col-md-4 modal-img-area">';
+                       teamDiv += '<img class="img-fluid" src="'+ADMIN_BASE_URL + users.imagePath1 +'" alt=""></div>';
+                        teamDiv +='<div class="col-12 col-md-8 modal-des-area d-flex justify-content-center align-items-center">';
+                       teamDiv += '<div class="modal-inner-description">';
+                        teamDiv +='<h4 class="slide-heading"> ' + users.userName + ' </h4>';
+                        teamDiv +='<p class="slide-des">' + users.userDesc + '</p>';
+                        teamDiv +='<aside class="f_widget f_about_widget">';
+                        teamDiv +='<ul class="nav">';
+                        if(users.facebookLink!=''){
+                            teamDiv +='<li><a href="' + users.facebookLink +'" target="_blank"><i class="fa fa-facebook" style="padding 10px;!important;padding: 8px;"></i></a></li>';
+                        }
+                        
+                        if(users.twitterLink!=''){
+                            teamDiv +='<li><a href="' + users.twitterLink +'" target="_blank"><i class="fa fa-twitter" style="padding 10px;!important;padding: 8px;"></i></a></li>';    
+                        }
+                        
+                        if(users.webLink!=''){
+                            teamDiv +='<li><a href="' + users.webLink +'" target="_blank"><i class="fa fa-link" style="padding 10px;!important;padding: 8px;"></i></a></li>';
+                        }
+                        
+                        if(users.instagramLink!=''){
+                            teamDiv +='<li><a href="' + users.instagramLink +'" target="_blank"><i class="fa fa-instagram" style="padding 10px;!important;padding: 8px;"></i></a></li>';
+                        }
+                        
+                        teamDiv +='</ul>';
+                        teamDiv +='</aside>';
+                        teamDiv +='</div>';
+                        teamDiv +='</div>';
+                }
+                teamDiv += '</div>';
+
+                console.log(teamDiv);
+                $('.userDetails').html(teamDiv);
             }
         });
     }
